@@ -31,7 +31,7 @@ app.get('/api/inventory', (req, res) => {
 if(req.query.item){
     console.log('App get IF hit')
 
-    const filteredItems = dummyDatabase.filter((food) => food.includes(req.query.item))
+    const filteredItems = dummyDatabase.filter((food) => food.toLocaleLowerCase().includes(req.query.item.toLocaleLowerCase()))
 
     res.status(200).send(filteredItems)
 }else {
